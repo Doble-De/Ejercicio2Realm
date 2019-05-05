@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ModifPersonas"></activity>
+        <activity android:name=".BuscarPersonas"></activity>
+        <activity android:name=".ModifPersonas" />
         <activity android:name=".MostrarPersonas" />
         <activity android:name=".AddPersonas" />
         <activity android:name=".MainActivity">

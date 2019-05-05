@@ -16,6 +16,7 @@ public class MostrarPersonas extends AppCompatActivity {
 
     TextView textView, id;
     String idm, nombre, apellido, genero, edad;
+    int ide;
     boolean encontrado;
 
     @Override
@@ -42,7 +43,26 @@ public class MostrarPersonas extends AppCompatActivity {
                     intent.putExtra("age",edad);
                     intent.putExtra("gender",genero);
                     startActivity(intent);
+                    onDestroy();
                 }
+            }
+        });
+
+        findViewById(R.id.eliminar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ide = buscarid().getId();
+                Realm realm = Realm.getDefaultInstance();
+                realm.beginTransaction();
+                RealmResults<Persona> delete = realm.where(Persona.class)
+                        .equalTo("id", ide)
+                        .findAll();
+
+                delete.deleteAllFromRealm();
+
+                realm.commitTransaction();
+
+                listarPersonas();
             }
         });
     }

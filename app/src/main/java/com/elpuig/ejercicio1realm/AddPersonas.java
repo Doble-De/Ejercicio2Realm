@@ -47,7 +47,6 @@ public class AddPersonas extends AppCompatActivity {
                 Persona addpersona = new Persona(id, etnombre.getText().toString(), etapellido.getText().toString(), text, Integer.parseInt((etedad.getText().toString())));
                 //Constructor de persona para sarlo todo como ArrayList
                 String temp = radioGroup.getTransitionName();
-                //Toast.makeText(AddPersonas.this, text  , Toast.LENGTH_SHORT).show();
                 realm.insertOrUpdate(addpersona);
 
                 realm.commitTransaction();
