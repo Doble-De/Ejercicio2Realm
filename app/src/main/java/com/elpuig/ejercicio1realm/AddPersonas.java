@@ -10,6 +10,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+
 import io.realm.Realm;
 
 public class AddPersonas extends AppCompatActivity {
@@ -24,7 +25,6 @@ public class AddPersonas extends AppCompatActivity {
         setContentView(R.layout.activity_add_personas);
 
         etnombre = findViewById(R.id.etnombre);
-        etapellido = findViewById(R.id.etapellido);
         etedad = findViewById(R.id.etedad);
         rbhombre = findViewById(R.id.Hombre);
         rbmujer = findViewById(R.id.Mujer);
@@ -44,7 +44,7 @@ public class AddPersonas extends AppCompatActivity {
                 RadioButton r = (RadioButton) radioGroup.getChildAt(idx);
                 String text = r.getText().toString();
                 realm.beginTransaction();
-                Persona addpersona = new Persona(id, etnombre.getText().toString(), etapellido.getText().toString(), text, Integer.parseInt((etedad.getText().toString())));
+                Persona addpersona = new Persona(id, etnombre.getText().toString(), text, Integer.parseInt((etedad.getText().toString())));
                 //Constructor de persona para sarlo todo como ArrayList
                 String temp = radioGroup.getTransitionName();
                 realm.insertOrUpdate(addpersona);

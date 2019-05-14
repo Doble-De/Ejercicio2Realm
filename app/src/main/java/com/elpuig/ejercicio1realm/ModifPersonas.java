@@ -17,7 +17,7 @@ public class ModifPersonas extends AppCompatActivity {
     EditText etnombrem, etapellidom, etedadm;
     RadioGroup radioGroup;
     RadioButton rbhombre, rbmujer;
-    String id = null, nom = null, cognom = null, edat = null, genere = null;
+    String id = null, nom = null,  edat = null, genere = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,6 @@ public class ModifPersonas extends AppCompatActivity {
         setContentView(R.layout.activity_modif_personas);
 
         etnombrem = findViewById(R.id.etnombrem);
-        etapellidom = findViewById(R.id.etapellidom);
         etedadm = findViewById(R.id.etedadm);
         rbhombre = findViewById(R.id.Hombre);
         rbmujer = findViewById(R.id.Mujer);
@@ -33,15 +32,13 @@ public class ModifPersonas extends AppCompatActivity {
 
         final String id = getIntent().getStringExtra("id");
         final String nom = getIntent().getStringExtra("name");
-        final String cognom = getIntent().getStringExtra("surname");
         final String edat = getIntent().getStringExtra("age");
         final String genere = getIntent().getStringExtra("gender");
 
-        System.out.println(id+" "+nom+" "+cognom+" "+edat+" "+genere);
+        System.out.println(id+" "+nom+" "+edat+" "+genere);
         //System.out.println("hola");
 
         etnombrem.setText(String.valueOf(nom));
-        etapellidom.setText(String.valueOf(cognom));
         etedadm.setText(edat);
         if (genere.equals("Hombre")){
             rbhombre.setChecked(true);
@@ -65,7 +62,7 @@ public class ModifPersonas extends AppCompatActivity {
                 RadioButton r = (RadioButton) radioGroup.getChildAt(idx);
                 String text = r.getText().toString();
                 realm.beginTransaction();
-                Persona addpersona = new Persona(idm, etnombrem.getText().toString(), etapellidom.getText().toString(), text, Integer.parseInt((etedadm.getText().toString())));
+                Persona addpersona = new Persona(idm, etnombrem.getText().toString(),text, Integer.parseInt((etedadm.getText().toString())));
                 //Constructor de persona para sarlo todo como ArrayList
                 String temp = radioGroup.getTransitionName();
                 realm.insertOrUpdate(addpersona);

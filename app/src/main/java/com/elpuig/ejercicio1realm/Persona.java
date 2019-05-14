@@ -8,22 +8,27 @@ import io.realm.annotations.Required;
 public class Persona extends RealmObject {
     @PrimaryKey
     private int id;
-    @Required private String nombre;
-    private String apellido;
+    //private String nombre;
+    //private String apellido;
     private int edad;
     private String sexo;
+    private String nombreCompleto;
+
+    public String getNombreCompleto() {
+        return nombreCompleto;
+    }
 
     public int getId() {
         return id;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
+//    public String getNombre() {
+//        return nombre;
+//    }
 
-    public String getApellido() {
-        return apellido;
-    }
+//    public String getApellido() {
+//        return apellido;
+//    }
 
     public int getEdad() {
         return edad;
@@ -33,12 +38,13 @@ public class Persona extends RealmObject {
         return sexo;
     }
 
-    public Persona(int id, String nombre, String apellido, String sexo, int edad){
+    public Persona(int id, String nombreCompleto, String sexo, int edad){
         this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
+//        this.nombre = nombre;
+//        this.apellido = apellido;
         this.sexo = sexo;
         this.edad = edad;
+        this.nombreCompleto = nombreCompleto;
     }
 
     public Persona(){

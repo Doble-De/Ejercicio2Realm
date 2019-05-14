@@ -127,7 +127,7 @@ public class BuscarPersonas extends AppCompatActivity {
         String lista = "";
         for (Persona persona : personas){
             if (persona.getEdad() >= edad1 && persona.getEdad() <= edad2){
-                lista += "Id: " + persona.getId() + " Nombre: " + persona.getNombre() + " Apellido: " + persona.getApellido()+ " Edad: " + persona.getEdad() + " Genero: " + persona.getSexo() +"\n";
+                lista += "Id: " + persona.getId() + " Nombre y Apellido: " + persona.getNombreCompleto()+ " Edad: " + persona.getEdad() + " Genero: " + persona.getSexo() +"\n";
             }
         }
         if (lista.equals("")){
@@ -144,7 +144,7 @@ public class BuscarPersonas extends AppCompatActivity {
         String lista = "";
         for (Persona persona : personas){
             if (persona.getEdad() >= edad1){
-                lista += "Id: " + persona.getId() + " Nombre: " + persona.getNombre() + " Apellido: " + persona.getApellido()+ " Edad: " + persona.getEdad() + " Genero: " + persona.getSexo() +"\n";
+                lista += "Id: " + persona.getId() + " Nombre y Apellido: " + persona.getNombreCompleto()+ " Edad: " + persona.getEdad() + " Genero: " + persona.getSexo() +"\n";
             }
         }
         if (lista.equals("")){
@@ -161,7 +161,7 @@ public class BuscarPersonas extends AppCompatActivity {
         String lista = "";
         for (Persona persona : personas){
             if (persona.getEdad() <= edad1){
-                lista += "Id: " + persona.getId() + " Nombre: " + persona.getNombre() + " Apellido: " + persona.getApellido()+ " Edad: " + persona.getEdad() + " Genero: " + persona.getSexo() +"\n";
+                lista += "Id: " + persona.getId() + " Nombre y Apellido: " + persona.getNombreCompleto()+ " Edad: " + persona.getEdad() + " Genero: " + persona.getSexo() +"\n";
             }
         }
         if (lista.equals("")){
@@ -182,7 +182,7 @@ public class BuscarPersonas extends AppCompatActivity {
         String lista = "";
         for (Persona persona : personas){
             if (persona.getSexo().equals(text)){
-                lista += "Id: " + persona.getId() + " Nombre: " + persona.getNombre() + " Apellido: " + persona.getApellido()+ " Edad: " + persona.getEdad() + " Genero: " + persona.getSexo() +"\n";
+                lista += "Id: " + persona.getId() + " Nombre y Apellido: " + persona.getNombreCompleto()+ " Edad: " + persona.getEdad() + " Genero: " + persona.getSexo() +"\n";
             }
         }
         if (lista.equals("")){

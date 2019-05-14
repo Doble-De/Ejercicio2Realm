@@ -15,7 +15,7 @@ import io.realm.RealmResults;
 public class MostrarPersonas extends AppCompatActivity {
 
     TextView textView, id;
-    String idm, nombre, apellido, genero, edad;
+    String idm, nombreCompleto, genero, edad;
     int ide;
     boolean encontrado;
 
@@ -34,12 +34,11 @@ public class MostrarPersonas extends AppCompatActivity {
         findViewById(R.id.modificar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println(idm+" "+nombre+" "+apellido+" "+genero+" "+ edad);
+                System.out.println(idm+" "+nombreCompleto+" "+genero+" "+ edad);
                 if (buscarid() != null){
                     Intent intent = new Intent(MostrarPersonas.this, ModifPersonas.class);
                     intent.putExtra("id",idm);
-                    intent.putExtra("name",nombre);
-                    intent.putExtra("surname",apellido);
+                    intent.putExtra("name",nombreCompleto);
                     intent.putExtra("age",edad);
                     intent.putExtra("gender",genero);
                     startActivity(intent);
@@ -72,7 +71,7 @@ public class MostrarPersonas extends AppCompatActivity {
         RealmResults<Persona> personas = realm.where(Persona.class).findAll();
         String lista = "";
         for (Persona persona : personas){
-            lista += "Id: " + persona.getId() + " Nombre: " + persona.getNombre() + " Apellido: " + persona.getApellido()+ " Edad: " + persona.getEdad() + " Genero: " + persona.getSexo() +"\n";
+            lista += "Id: " + persona.getId() + " Nombre Apellido: " + persona.getNombreCompleto() +" Edad: " + persona.getEdad() + " Genero: " + persona.getSexo() +"\n";
         }
         textView.setText(lista);
         return personas;
@@ -86,8 +85,7 @@ public class MostrarPersonas extends AppCompatActivity {
         for (Persona persona : personas){
             if (temp == persona.getId()){
                 idm = String.valueOf(persona.getId());
-                nombre = persona.getNombre();
-                apellido = persona.getApellido();
+                nombreCompleto = persona.getNombreCompleto();
                 edad = String.valueOf(persona.getEdad());
                 genero = persona.getSexo();
                 return persona;
